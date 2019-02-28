@@ -1,2 +1,0 @@
-# halpz.github.io
-website
