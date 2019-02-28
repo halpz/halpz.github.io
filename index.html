@@ -1,9 +1,7 @@
  <!DOCTYPE html>
 <html>
 <head>
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 	<style type="text/css">
 		body {
 			background-image: url('images/flag.gif');
@@ -21,7 +19,18 @@
 		}
 		#head {
 			top: 100;
+			-webkit-animation: rotation 5s infinite linear;
 		}
+
+		@-webkit-keyframes rotation {
+			from {
+					-webkit-transform: rotate(0deg);
+			}
+			to {
+					-webkit-transform: rotate(359deg);
+			}
+		}
+
 	</style>
 	<script type="text/javascript">
 		alert("hello");
