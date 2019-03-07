@@ -54,7 +54,15 @@
 		$(document).ready(function(){
 			audio = document.createElement("audio");
 			audio.src = "files/win.mp3";
+			audio.controls = true;
 			audio.addEventListener("canplaythrough", function () {
+
+
+
+
+
+
+
 				audio.play();
 				nice();
 				setInterval(nice, 882);
