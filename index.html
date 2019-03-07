@@ -35,9 +35,7 @@
 			color: white;
 			font-family: comic sans ms;
 			position: absolute;
-			-webkit-text-stroke: 3px black;
-			font-size: 4em;
-			-webkit-animation: rotation 5s infinite linear;
+			-webkit-text-stroke: 1px black;
 		}
 		@-webkit-keyframes rotation {
 			from {
@@ -56,11 +54,15 @@
 		});
 
 		function nice() {
-			var rNum = (Math.random()*40); 
-			var rot8 = "-ms-transform: rotate("+rNum+"deg);-webkit-transform: rotate("+rNum+"deg);transform: rotate("+rNum+"deg)"
+			var max = 45;
+			var min = -45;
+			var rNum = Math.random() * (max - min) + min;
+			var rot8 = "-ms-transform: rotate("+rNum+"deg);-webkit-transform: rotate("+rNum+"deg);transform: rotate("+rNum+"deg);"
+			var fsize = Math.random() * 6;
+			var size = "font-size:"+fsize+"em;"
 			var posx = (Math.random() * ($(document).width() - 100)).toFixed();
 			var posy = (Math.random() * ($(document).height() - 100)).toFixed();
-			var nice = "<p class='nice' style='top:"+posy+"px;left:"+posx+"px;"+rot8+"'>nice</p>";
+			var nice = "<p class='nice' style='top:"+posy+"px;left:"+posx+"px;"+rot8+""+size+"'>nice</p>";
 			$('body').append(nice);
 		}
 
