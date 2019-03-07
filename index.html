@@ -49,15 +49,13 @@
 	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet"/>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script type="text/javascript">
-		var audio;
+
 		$(document).ready(function() {
 		    go();
 		});
 
 		function go() {
-		    audio = document.createElement("audio");
-		    audio.src = "files/win.mp3";
-		    audio.controls = true;
+		    var audio = new Audio('files/win.mp3');
 		    audio.addEventListener("canplaythrough", function() {
 		        audio.play();
 		        nice();
@@ -84,7 +82,6 @@
 		    var audio = new Audio('files/nice.mp3');
 		    audio.play();
 		}
-
 
 
 	</script>
