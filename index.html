@@ -32,7 +32,6 @@
 			margin: 0 auto;
 		}
 		.nice {
-			color: white;
 			font-family: comic sans ms;
 			position: absolute;
 			-webkit-text-stroke: 1px black;
@@ -57,12 +56,13 @@
 			var max = 45;
 			var min = -45;
 			var rNum = Math.random() * (max - min) + min;
+			var color = "color:#" + Math.floor(Math.random() * 16777216).toString(16)+";";
 			var rot8 = "-ms-transform: rotate("+rNum+"deg);-webkit-transform: rotate("+rNum+"deg);transform: rotate("+rNum+"deg);"
 			var fsize = Math.random() * 6;
 			var size = "font-size:"+fsize+"em;"
 			var posx = (Math.random() * ($(document).width() - 100)).toFixed();
 			var posy = (Math.random() * ($(document).height() - 100)).toFixed();
-			var nice = "<p class='nice' style='top:"+posy+"px;left:"+posx+"px;"+rot8+""+size+"'>nice</p>";
+			var nice = "<p class='nice' style='top:"+posy+"px;left:"+posx+"px;"+rot8+size+color+"'>nice</p>";
 			$('body').append(nice);
 		}
 
