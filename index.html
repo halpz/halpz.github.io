@@ -91,6 +91,9 @@
 			var posx = (Math.random() * screenWidth)+"px";
 		    var posy = (Math.random() * screenHeight)+"px";
 			var word = words[Math.floor(Math.random()*words.length)];
+			if (Math.random() > 0.5) {
+				word = "nice";
+			}
 
 		    var nice = $("<p class='nice'>");
 		    nice.text(word);
