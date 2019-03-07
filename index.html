@@ -50,7 +50,7 @@
 	<script type="text/javascript">
 
 		$(document).ready(function(){
-			setInterval(nice, 200);
+			setInterval(nice, 800);
 		});
 
 		function nice() {
@@ -59,12 +59,18 @@
 			var rNum = Math.random() * (max - min) + min;
 			var color = "color:#" + Math.floor(Math.random() * 16777216).toString(16)+";";
 			var rot8 = "-ms-transform: rotate("+rNum+"deg);-webkit-transform: rotate("+rNum+"deg);transform: rotate("+rNum+"deg);"
-			var fsize = Math.random() * 6;
+			var fsize = Math.random() * (8 - 3) + 3;
 			var size = "font-size:"+fsize+"em;"
 			var posx = (Math.random() * ($(document).width() - 100)).toFixed();
 			var posy = (Math.random() * ($(document).height() - 100)).toFixed();
 			var nice = "<p class='nice' style='top:"+posy+"px;left:"+posx+"px;"+rot8+size+color+"'>nice</p>";
 			$('body').append(nice);
+			sayNice();
+		}
+
+		function sayNice() {
+			var audio = new Audio('files/nice.mp3');
+			audio.play();
 		}
 
 	</script>
