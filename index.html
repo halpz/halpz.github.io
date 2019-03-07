@@ -50,8 +50,11 @@
 	<script type="text/javascript">
 
 		$(document).ready(function(){
-			setInterval(nice, 800);
+			//setInterval(nice, 800);
+			nice();
 		});
+
+		var interval = 882;
 
 		function nice() {
 			var max = 45;
@@ -66,6 +69,7 @@
 			var nice = "<p class='nice' style='top:"+posy+"px;left:"+posx+"px;"+rot8+size+color+"'>nice</p>";
 			$('body').append(nice);
 			sayNice();
+			setTimeout("nice()", interval);
 		}
 
 		function sayNice() {
