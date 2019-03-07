@@ -111,7 +111,9 @@
 				nice.css("-webkit-animation", "rotation 1s infinite linear");
 			}
 
-		    nice.appendTo($('body')).fadeOut(15000);
+		    nice.appendTo($('body')).fadeOut(15000,function() {
+		    	nice.remove();
+		    });
 
 		    sayNice();
 		}
