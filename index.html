@@ -107,6 +107,10 @@
 			  "color": "#"+Math.floor(Math.random() * 16777216).toString(16)
 			});
 
+			if (Math.random() < 0.15) {
+				nice.css("-webkit-animation", "rotation 1s infinite linear");
+			}
+
 		    nice.appendTo($('body')).fadeOut(15000);
 
 		    sayNice();
