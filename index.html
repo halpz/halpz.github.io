@@ -62,7 +62,14 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script type="text/javascript">
 
+		var words = ['lovely','perfect','gorgeous','fantastic','best man','dad','fella','wonderful','simply','sinply','so nice','nice','very nice','brilliant'];
+		var screenWidth;
+		var screenHeight;
+
 		$(document).ready(function() {
+			$("body").css("overflow", "hidden");
+			screenWidth = ($(document).width() - 200).toFixed();
+			screenHeight = ($(document).height() - 500).toFixed();
 		    go();
 		});
 
@@ -79,14 +86,26 @@
 		    var max = 45;
 		    var min = -45;
 		    var rNum = Math.random() * (max - min) + min;
-		    var color = "color:#" + Math.floor(Math.random() * 16777216).toString(16) + ";";
-		    var rot8 = "-ms-transform: rotate(" + rNum + "deg);-webkit-transform: rotate(" + rNum + "deg);transform: rotate(" + rNum + "deg);"
 		    var fsize = Math.random() * (8 - 3) + 3;
 		    var size = "font-size:" + fsize + "em;"
-		    var posx = (Math.random() * ($(document).width() - 100)).toFixed();
-		    var posy = (Math.random() * ($(document).height() - 100)).toFixed();
-		    var nice = "<p class='nice' style='top:" + posy + "px;left:" + posx + "px;" + rot8 + size + color + "'>nice</p>";
-		    $('body').append(nice);
+			var posx = (Math.random() * screenWidth)+"px";
+		    var posy = (Math.random() * screenHeight)+"px";
+			var word = words[Math.floor(Math.random()*words.length)];
+
+		    var nice = $("<p class='nice'>");
+		    nice.text(word);
+		    nice.css({
+			  "top": posy,
+			  "left": posx,
+			  "-ms-transform": "rotate("+rNum+"deg)",
+			  "-webkit-transform": "rotate("+rNum+"deg)",
+			  "transform": "rotate("+rNum+"deg)",
+			  "font-size": fsize+"em",
+			  "color": "#"+Math.floor(Math.random() * 16777216).toString(16)
+			});
+
+		    nice.appendTo($('body')).fadeOut(15000);
+
 		    sayNice();
 		}
 
