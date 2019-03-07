@@ -57,6 +57,7 @@
 			audio.addEventListener("canplaythrough", function () {
 				audio.play();
 				nice();
+				setInterval(nice, 882);
 			}, false);
 		});
 
@@ -75,7 +76,6 @@
 			var nice = "<p class='nice' style='top:"+posy+"px;left:"+posx+"px;"+rot8+size+color+"'>nice</p>";
 			$('body').append(nice);
 			sayNice();
-			setTimeout("nice()", interval);
 		}
 
 		function sayNice() {
