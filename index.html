@@ -31,6 +31,13 @@
 			display: block; 
 			margin: 0 auto;
 		}
+		.nice {
+			color: white;
+			font-family: comic sans ms;
+			position: absolute;
+			font-size: 4em;
+			-webkit-animation: rotation 5s infinite linear;
+		}
 		@-webkit-keyframes rotation {
 			from {
 				-webkit-transform: rotate(0deg);
@@ -40,9 +47,23 @@
 			}
 		}
 	</style>
-	<!-- <script type="text/javascript">
-	       alert("hello");
-	</script> -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script type="text/javascript">
+
+		$(document).ready(function(){
+			setInterval(nice, 200);
+		});
+
+		function nice() {
+			var rNum = (Math.random()*40); 
+			var rot8 = "-ms-transform: rotate("+rNum+"deg);-webkit-transform: rotate("+rNum+"deg);transform: rotate("+rNum+"deg)"
+			var posx = (Math.random() * ($(document).width() - 100)).toFixed();
+			var posy = (Math.random() * ($(document).height() - 100)).toFixed();
+			var nice = "<p class='nice' style='top:"+posy+"px;left:"+posx+"px;"+rot8+"'>nice</p>";
+			$('body').append(nice);
+		}
+
+	</script>
 	<title>Paul Halpin</title>
 </head>
 <body>
@@ -52,5 +73,6 @@
 	</audio>
 	<br>
 	<img id="head" src="images/head.png">
+	<!-- <p class='nice'>nice</p> -->
 </body>
 </html>
