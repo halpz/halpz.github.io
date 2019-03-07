@@ -46,12 +46,18 @@
 			}
 		}
 	</style>
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet"/>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script type="text/javascript">
 
+		var audio;
 		$(document).ready(function(){
-			//setInterval(nice, 800);
-			nice();
+			audio = document.createElement("audio");
+			audio.src = "files/win.mp3";
+			audio.addEventListener("canplaythrough", function () {
+				audio.play();
+				nice();
+			}, false);
 		});
 
 		var interval = 882;
@@ -82,9 +88,9 @@
 </head>
 <body>
 	<h1>Paul Halpin</h1>
-	<audio autoplay controls>
+	<!-- <audio autoplay controls>
 		<source src="files/win.mp3" type="audio/mpeg">
-	</audio>
+	</audio> -->
 	<br>
 	<img id="head" src="images/head.png">
 </body>
