@@ -93,7 +93,17 @@
 		}
 
 		function egg() {
-			$('#head').attr('src','images/moi.png');
+			if ($('#head').attr("src") == "images/moi.png") {
+				$('#head').attr('src','images/head.png');
+			} else {
+				$('#head').attr('src','images/moi.png');
+			}
+			var clap = new Howl({
+				volume : 1.0,
+		      src: ['files/clap.mp3'],
+		    });
+		    clap.play();
+			
 		}
 
 		function nice() {
