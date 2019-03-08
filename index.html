@@ -62,11 +62,13 @@
 	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet"/>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="files/howler.min.js"></script>
+	<script src="files/konami.js"></script>
 	<script type="text/javascript">
 
 		var words = ['lovely','perfect','gorgeous','fantastic','dad','fella','wonderful','simply','sinply','so nice','very nice','brilliant'];
 		var screenWidth;
 		var screenHeight;
+		var easter_egg = new Konami(egg);
 
 		$(document).ready(function() {
 			screenWidth = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
@@ -88,6 +90,10 @@
 		      }
 		    });
 
+		}
+
+		function egg() {
+			$('#head').attr('src','images/moi.png');
 		}
 
 		function nice() {
