@@ -1,5 +1,4 @@
 <!-- 
-
 .__   __.  __    ______  _______ 
 |  \ |  | |  |  /      ||   ____|
 |   \|  | |  | |  ,----'|  |__   
@@ -7,7 +6,6 @@
 |  |\   | |  | |  `----.|  |____ 
 |__| \__| |__|  \______||_______|
                                  
-
  -->
 
 <!DOCTYPE html>
@@ -63,100 +61,90 @@
 	<script src="files/howler.min.js"></script>
 	<script src="files/konami.js"></script>
 	<script type="text/javascript">
-
-		var words = ['lovely','perfect','gorgeous','fantastic','dad','fella','wonderful','simply','sinply','so nice','very nice','brilliant'];
+		
+		var words = ['lovely', 'perfect', 'gorgeous', 'fantastic', 'dad', 'fella', 'wonderful', 'simply', 'sinply', 'so nice', 'very nice', 'brilliant'];
 		var screenWidth;
 		var screenHeight;
 		var easter_egg = new Konami(egg);
-
 		$(document).ready(function() {
-			screenWidth = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
-			screenHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
-
+		    screenWidth = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+		    screenHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
 		    go();
 		});
 
 		function go() {
-
 		    var sound = new Howl({
-		      src: ['files/win.opus','files/win.mp3'],
-		      loop: true,
-		      volume: 0.5,
-		      autoplay: true,
-		      onload: function(){
-		      	nice();
-		        setInterval(nice, 882);
-		      }
+		        src: ['files/win.opus', 'files/win.mp3'],
+		        loop: true,
+		        volume: 0.5,
+		        autoplay: true,
+		        onload: function() {
+		            nice();
+		            setInterval(nice, 882);
+		        }
 		    });
 
 		}
 
 		function egg() {
-			if ($('#head').attr("src") == "images/moi.png") {
-				$('#head').attr('src','images/head.png');
-			} else {
-				$('#head').attr('src','images/moi.png');
-			}
-			var clap = new Howl({
-				volume : 1.0,
-		      src: ['files/clap.mp3'],
+		    if ($('#head').attr("src") == "images/moi.png") {
+		        $('#head').attr('src', 'images/head.png');
+		    } else {
+		        $('#head').attr('src', 'images/moi.png');
+		    }
+		    var clap = new Howl({
+		        volume: 1.0,
+		        src: ['files/clap.mp3'],
 		    });
 		    clap.play();
-			
 		}
 
 		function nice() {
 		    var max = 45;
 		    var min = -45;
 		    var rNum = Math.random() * (max - min) + min;
-	    	max = 8;
-	    	min = 3;
+		    max = 8;
+		    min = 3;
 		    var fsize = Math.random() * (max - min) + min;
 		    var size = "font-size:" + fsize + "em;"
-			var posx = (Math.random() * screenWidth)+"px";
-		    var posy = (Math.random() * screenHeight)+"px";
-			var word = words[Math.floor(Math.random()*words.length)];
-			if (Math.random() > 0.3) {
-				word = "nice";
-			}
-
+		    var posx = (Math.random() * screenWidth) + "px";
+		    var posy = (Math.random() * screenHeight) + "px";
+		    var word = words[Math.floor(Math.random() * words.length)];
+		    if (Math.random() > 0.3) {
+		        word = "nice";
+		    }
 		    var nice = $("<p class='nice'>");
 		    nice.text(word);
 		    nice.css({
-			  "top": posy,
-			  "left": posx,
-			  "-ms-transform": "rotate("+rNum+"deg)",
-			  "-webkit-transform": "rotate("+rNum+"deg)",
-			  "transform": "rotate("+rNum+"deg)",
-			  "font-size": fsize+"em",
-			  "color": "#"+Math.floor(Math.random() * 16777216).toString(16)
-			});
-
-			if (Math.random() < 0.15) {
-				nice.css("-webkit-animation", "rotation 1s infinite linear");
-			}
-
-		    nice.appendTo($('body')).fadeOut(15000,function() {
-		    	nice.remove();
+		        "top": posy,
+		        "left": posx,
+		        "-ms-transform": "rotate(" + rNum + "deg)",
+		        "-webkit-transform": "rotate(" + rNum + "deg)",
+		        "transform": "rotate(" + rNum + "deg)",
+		        "font-size": fsize + "em",
+		        "color": "#" + Math.floor(Math.random() * 16777216).toString(16)
 		    });
-
+		    if (Math.random() < 0.15) {
+		        nice.css("-webkit-animation", "rotation 1s infinite linear");
+		    }
+		    nice.appendTo($('body')).fadeOut(15000, function() {
+		        nice.remove();
+		    });
 		    sayNice();
 		}
 
 		function sayNice() {
 
-			var source = 'files/nice.mp3';
-			if (Math.random() < 0.4) {
-				source = "files/farts/fart"+Math.floor(Math.random()*234)+".mp3";
-			}
-
-			var sound = new Howl({
-				volume : 1.0,
-		      src: [source],
+		    var source = 'files/nice.mp3';
+		    if (Math.random() < 0.4) {
+		        source = "files/farts/fart" + Math.floor(Math.random() * 234) + ".mp3";
+		    }
+		    var sound = new Howl({
+		        volume: 1.0,
+		        src: [source],
 		    });
 		    sound.play();
 		}
-
 
 	</script>
 	<title>Paul Halpin</title>
