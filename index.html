@@ -60,6 +60,7 @@
 	</style>
 	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet"/>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="files/howler.min.js"></script>
 	<script type="text/javascript">
 
 		var words = ['lovely','perfect','gorgeous','fantastic','dad','fella','wonderful','simply','sinply','so nice','very nice','brilliant'];
@@ -74,12 +75,17 @@
 		});
 
 		function go() {
-		    var audio = new Audio('files/win.mp3');
-		    audio.addEventListener("canplaythrough", function() {
-		        audio.play();
-		        nice();
+
+		    var sound = new Howl({
+		      src: ['files/win.mp3'],
+		      loop: true,
+		      autoplay: true,
+		      onload: function(){
+		      	nice();
 		        setInterval(nice, 882);
-		    }, false);
+		      }
+		    });
+
 		}
 
 		function nice() {
@@ -119,8 +125,11 @@
 		}
 
 		function sayNice() {
-		    var audio = new Audio('files/nice.mp3');
-		    audio.play();
+
+			var sound = new Howl({
+		      src: ['files/nice.mp3']
+		    });
+		    sound.play();
 		}
 
 
