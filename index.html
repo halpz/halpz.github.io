@@ -16,6 +16,7 @@
 	<meta content="width=device-width, initial-scale=1.0" name="viewport">
 	<style type="text/css">
 		body {
+			overflow: hidden;
 			margin: 0;
 			padding: 0;
 			background-image: url('images/flag.gif');
@@ -68,7 +69,6 @@
 		var screenHeight;
 
 		$(document).ready(function() {
-			$("body").css("overflow", "hidden");
 			screenWidth = ($(document).width() - 200).toFixed();
 			screenHeight = ($(document).height() - 500).toFixed();
 		    go();
